@@ -1,7 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const authRoute = require("./routes/authRoutes");
+const bodyParser = require("body-parser");
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(authRoute);
 
 const mongoUri = "mongodb+srv://sumit-prod:passwordpassword@cluster0.0dw7l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(mongoUri, {
